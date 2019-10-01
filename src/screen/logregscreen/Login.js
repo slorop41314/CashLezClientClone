@@ -19,6 +19,8 @@ import {
     TouchableOpacity
 
 } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage'
+import jwt from "react-native-pure-jwt";
 import axios from 'axios'
 import Host from '../../environment/Host'
 
@@ -55,10 +57,27 @@ export default class Login extends Component {
                 username : this.state.username,
                 password : this.state.password
             }
-            await axios.post(`${Host.localhost}/auth`, Data)
-            alert('Success Login')
+            try {
+            const user = await axios.post(`${Host.localhost}/auth`, Data)
+            if(user) {
+                await AsyncStorage.setItem('userToken', user.data );
+                    const objJwt = await jwt.decode(
+                    user.data, // the token
+                    'cashlezclone', // the secret
+                    {
+                        skipValidation: true // to skip signature and exp verification
+                    }
+                    );
+                    await AsyncStorage.setItem('userData',JSON.stringify(objJwt.payload.userData));
+                    this.props.navigation.navigate('MemberNavigator')
+            }
         }
+        catch(error) {
+            alert(error)
+        }
+        
     }
+}
         
     
     render() {
@@ -66,7 +85,7 @@ export default class Login extends Component {
             <Container style={{ paddingHorizontal:40, width: "100%"}}>
                 <Content>
                     <View style={{justifyContent:"center", alignItems: "center"}}>
-                    <Image source={require('../component/logo.png')}/>
+                    <Image source={require('../component/staticimage/logo.png')}/>
                     </View>
                     <View style={{alignItems:"center"}}>
                     <Text style={{padding: 10, fontSize: 25}} >Welcome</Text>

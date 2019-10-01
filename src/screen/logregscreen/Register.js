@@ -16,7 +16,7 @@ import {
 
 } from 'native-base'
 import axios from 'axios'
-import HeaderComp from '../component/HeaderComp';
+import HeaderComp from '../component/Header/HeaderComp';
 import { InputFloating } from '../component/InputComp/InputComp';
 
 import Host from '../../environment/Host'
@@ -81,7 +81,7 @@ export default class Register extends Component {
                     <Content style={{paddingHorizontal:20, paddingBottom:100}}>
                         
                         <View style={{ alignItems:"center", padding : 20}}>
-                            <Image source={require('../component/list.png')}/>
+                            <Image source={require('../component/staticimage/list.png')}/>
                             <Text style={{fontSize:22}}>Daftar menjadi merchant Cashlez</Text>
                             <Text style={{fontSize:18, textAlign:"center", alignItems:"center"}}>Ayo klaim nama bisnis Anda dengan POS Cashlez</Text>
                         </View>
@@ -103,7 +103,7 @@ export default class Register extends Component {
                             </Picker>
                         </ListItem>
                         <Item >
-                            <Image style={{height:30, width: 30}}source={require('../component/benderaid.png')}/>
+                            <Image style={{height:30, width: 30}}source={require('../component/staticimage/benderaid.png')}/>
                             <Input 
                             placeholder="Phone Number"
                             keyboardType="number-pad"

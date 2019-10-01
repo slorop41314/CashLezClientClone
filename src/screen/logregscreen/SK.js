@@ -16,7 +16,7 @@ import {
      ListItem
  } from 'native-base'
 
-import HeaderComp from '../component/HeaderComp'
+import HeaderComp from '../component/Header/HeaderComp'
 
  export default class SK extends Component {
     constructor() {
