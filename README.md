@@ -37,8 +37,8 @@ Follow these step to install
 
 **Frontend:**
 ```
-$ git clone https://github.com/DumbWaysStudent/DW124EX0D_webtoon.git
-$ cd CloneWebtoon
+$ git clone https://github.com/slorop41314/CashLezClientClone.git
+$ cd clonecl
 $ npm install
 $ react-native run-ios #for ios
 $ react-native run-android #for android
