@@ -7,7 +7,7 @@ import {useDispatch, useSelector} from 'react-redux'
 import { getProduct } from '../../../action/product'
 import { getUserId
 } from '../../../function/getget';
-import HeaderComp from '../../component/Header/HeaderComp'
+import {HeaderComp} from '../../component/Header/HeaderComp'
 import Buttontambahdibawh from '../../component/TouchableComp/Buttontambahdibawh';
 import Flatlistcomp from '../../component/List/flatlistcomp';
 

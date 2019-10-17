@@ -6,7 +6,7 @@ import {
 } from 'native-base'
 import { InputFloating } from '../../component/InputComp/InputComp';
 import Buttonsavereset from '../../component/TouchableComp/Buttonsavereset';
-import HeaderComp from '../../component/Header/HeaderComp';
+import {HeaderComp} from '../../component/Header/HeaderComp';
 
 import axios from 'axios'
 import Host from '../../../environment/Host'

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Text , View} from 'react-native';
 import ListJudulSubJudul from '../component/List/ListJudulSubJudul';
-import HeaderComp from '../component/Header/HeaderComp'
+import {HeaderComp} from '../component/Header/HeaderComp'
 
 export default class PointofSale extends Component {
     state = {  }

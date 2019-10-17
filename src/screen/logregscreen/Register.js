@@ -16,7 +16,7 @@ import {
 
 } from 'native-base'
 import axios from 'axios'
-import HeaderComp from '../component/Header/HeaderComp';
+import {HeaderComp} from '../component/Header/HeaderComp';
 import { InputFloating } from '../component/InputComp/InputComp';
 
 import Host from '../../environment/Host'
@@ -86,9 +86,9 @@ export default class Register extends Component {
                             <Text style={{fontSize:18, textAlign:"center", alignItems:"center"}}>Ayo klaim nama bisnis Anda dengan POS Cashlez</Text>
                         </View>
                         <Form style={{paddingBottom:50}}>
-                        <InputFloating label="Full Name"  handleChangeText={(text) => this.setState({fullname: text})} />
-                        <InputFloating label="Email" handleChangeText={(text) => this.setState({email: text})} />
-                        <InputFloating label="Password" handleChangeText={(text) => this.setState({password: text})} />
+                        <InputFloating label="Full Name" value={this.state.fullname}  handleChangeText={(text) => this.setState({fullname: text})} />
+                        <InputFloating label="Email" value={this.state.email} handleChangeText={(text) => this.setState({email: text})} />
+                        <InputFloating label="Password" value={this.state.password}  handleChangeText={(text) => this.setState({password: text})} />
                         <ListItem>
                             <Text>Gender : </Text>
                             <Picker
@@ -110,10 +110,10 @@ export default class Register extends Component {
                             onChangeText={(text)=> this.setState({phonenumber: text})}
                             />
                         </Item>
-                        <InputFloating label="Username" handleChangeText={(text)=> this.setState({username:text})}/>
-                        <InputFloating label="Business Name" handleChangeText={(text)=> this.setState({businessname:text})}/>
-                        <InputFloating label="Business Adress" handleChangeText={(text)=> this.setState({businessadress:text})}/>
-                        <InputFloating label="Referral Code" handleChangeText={(text)=> this.setState({referralcode:text})}/>
+                        <InputFloating label="Username" value={this.state.username}  handleChangeText={(text)=> this.setState({username:text})}/>
+                        <InputFloating label="Business Name" value={this.state.businessname}  handleChangeText={(text)=> this.setState({businessname:text})}/>
+                        <InputFloating label="Business Adress" value={this.state.businessadress}  handleChangeText={(text)=> this.setState({businessadress:text})}/>
+                        <InputFloating label="Referral Code"  handleChangeText={(text)=> this.setState({referralcode:text})}/>
                         </Form>
                         <Button primary onPress={this.handleSubmitForm}
                         style={{justifyContent:"center"}}

@@ -17,6 +17,11 @@ import Setting from '../screen/memberscreen/Setting'
 
 
 import { gestureHandlerRootHOC } from 'react-native-gesture-handler'
+import CheckOut from '../screen/subscreen/submainsc/CheckOut';
+import FinalCheck from '../screen/subscreen/submainsc/subcheckout/FinalCheck'
+import CashPayment from '../screen/subscreen/submainsc/subcheckout/CashPayment'
+
+import InputCustomer from '../screen/subscreen/submainsc/InputCustomer';
 
 
 
@@ -46,10 +51,42 @@ const CustomDrawerComponent = (props) => (
   </SafeAreaView>
 )
 
+const PaymentNavigator = createStackNavigator({
+  MainScreen : {
+    screen : MainScreen,
+    navigationOptions : {
+      header : null
+    }
+  },
+  CheckOut : {
+    screen : CheckOut,
+    navigationOptions : {
+      header : null
+    }
+  },
+  InputCustomer : {
+    screen : InputCustomer,
+    navigationOptions : {
+      header : null
+    }
+  },
+  FinalCheck : {
+    screen : FinalCheck,
+    navigationOptions : {
+      header : null
+    }
+  },
+  CashPayment : {
+    screen : CashPayment,
+    navigationOptions : {
+      header : null
+    }
+  },
+})
 
 const DrawerNavigator = createDrawerNavigator({
   Payment : {
-    screen : MainScreen,
+    screen : PaymentNavigator,
     navigationOptions: {
       header: null
     }

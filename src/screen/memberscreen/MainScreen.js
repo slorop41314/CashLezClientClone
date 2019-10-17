@@ -54,7 +54,6 @@ const MainScreen = ({navigation}) => {
 
     const _onPressItem = (item) => {
         dispatch(AddCart(item))    
-        // alert(item.name)
     }
 
     if (isLoading) {
@@ -92,9 +91,9 @@ const MainScreen = ({navigation}) => {
                         </View>
                     </View>
                     <View style={{flexDirection:"row"}}>
-                        <Touchablekayakbutton abc="Input Customer" disabled={false} buatapa={() => alert("Customer")}/>
+                        <Touchablekayakbutton abc="Input Customer" disabled={false} buatapa={() => navigation.navigate('InputCustomer')}/>
                         <Touchablekayakbutton abc="Clear All" disabled={cart.belanja.length > 0 ? false : true} buatapa={() => dispatch(removeAll())}/>
-                        <Touchablekayakbutton abc="Checkout" disabled={cart.belanja.length > 0 ? false : true} buatapa={() => alert("CheckOut")}/>
+                        <Touchablekayakbutton abc="Checkout" disabled={cart.jumlahitem != 0 ? false : true} buatapa={() => navigation.navigate('CheckOut')}/>
                     </View>
                     <View style={{flexDirection:"row", alignItems:"center"}}>
                     <Picker
@@ -119,11 +118,11 @@ const MainScreen = ({navigation}) => {
                     </View>
                     <ScrollView>
                         <FlatList
-                        data={dataproduct}
+                        data={dataproduct.filter(item => item.categoryId != category)}
                         numColumns={2}
                         //Item Separator View
                         renderItem={({ item }) => (
-                            item.categoryId === category ?
+                            // item.categoryId === category ?
                             // Single Comes here which will be repeatative for the FlatListItems
                             <View style={{padding:"2%"}}>
                             <TouchableOpacity 
@@ -142,7 +141,6 @@ const MainScreen = ({navigation}) => {
                                 </View>
                             </TouchableOpacity>
                             </View>
-                            : null
                         )}
                         enableEmptySections={true}
                         style={{ marginTop: 10 }}

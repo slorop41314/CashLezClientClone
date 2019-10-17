@@ -3,7 +3,7 @@ import { useDispatch , useSelector } from 'react-redux'
 import { ScrollView } from 'react-native';
 import { Container } from 'native-base'
 
-import HeaderComp from '../../component/Header/HeaderComp'
+import {HeaderComp} from '../../component/Header/HeaderComp'
 import Buttontambahdibawh from '../../component/TouchableComp/Buttontambahdibawh';
 import Flatlistcomp from '../../component/List/flatlistcomp';
 import { getCategory } from '../../../action/category';

@@ -10,7 +10,7 @@ import {
 import axios from 'axios'
 import {useDispatch, useSelector} from 'react-redux'
 
-import HeaderComp from '../../component/Header/HeaderComp';
+import {HeaderComp} from '../../component/Header/HeaderComp';
 import { InputFloating } from '../../component/InputComp/InputComp';
 import {
     getUserId, 
@@ -26,9 +26,8 @@ const AddProduct = ({navigation}) => {
         name : '',
         price : '',
         userId : '',
-        categoryId : ''
+        categoryId : null
     })
-    // const [categoryData , setCategoryData] = useState([])
     const [isLoading , setIsLoading] = useState(true)
     const categoryData = useSelector(state => state.category.data)
     useEffect(() => { 
@@ -37,11 +36,21 @@ const AddProduct = ({navigation}) => {
 
     const getListCategory = async () => {
         const response = await getUserId()
+        
+        dispatch(getCategory(response))
+        
         if(response) {
             setFormData({...formData,
-                userId : response})
+                userId : response,
+                categoryId : categoryData[0]._id 
+            })
         }
-        dispatch(getCategory(response))
+        
+        // setFormData({
+        //     ...formData,
+        //   categoryId : categoryData[0]._id 
+        // });
+        console.log(formData.categoryId)
         setIsLoading(false)
     }
     const handleReset = () => {
@@ -53,10 +62,12 @@ const AddProduct = ({navigation}) => {
     }
 
     const handleSaveCategory = async () =>  {
+        alert(formData.categoryId)
+        console.log(formData)
         await axios.post(`${Host.localhost}/product`, formData)
         .then(res => res)
-        alert('Success')
         dispatch(getProduct(formData.userId))
+        navigation.goBack()
     }
 
     const onValueChange = (value) => {
